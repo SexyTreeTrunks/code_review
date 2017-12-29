@@ -1,9 +1,13 @@
 
 class SumMatrix {
 	int[][] sumMatrix(int[][] A, int[][] B) {
-		int[][] answer = {{0, 0}, {0, 0}};
-		for(int i=0; i<answer.length; i++) {
-			for(int j = 0; j<answer.length; j++) {
+		//항상 N*N행렬인줄
+		//해결법
+		int row = A.length;
+		int column = A[0].length;
+		int[][] answer = new int[row][column];
+		for(int i=0; i<row; i++) {
+			for(int j = 0; j<column; j++) {
 				answer[i][j] = A[i][j] + B[i][j];
 			}
 		}

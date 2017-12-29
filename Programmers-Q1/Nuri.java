@@ -1,32 +1,30 @@
-class SumMatrix {
-    int[][] sumMatrix(int[][] A, int[][] B) {
-        int rowLength, colLength;
-    int i,j;
-    //행, 열 길이구하기
-    rowLength = A.length;
-    colLength = A[0].length;
-    //알맞은 사이즈의 새로운 배열 생성
-    int[][] answer = new int[rowLength][colLength];
-    //덧셈
-    for(i=0;i<rowLength;i++){
-     for(j=0;j<colLength;j++){
-       answer[i][j] = A[i][j] + B[i][j];
-      }
-    }
+import java.util.Arrays;
+
+class TryHelloWorld {
+    public int[] gcdlcm(int a, int b) {
+        int[] answer = new int[2];
+        int i;
+        int bigger = 0;
+        //큰 수 구하기
+        if(a<b)
+          bigger = b;
+        else
+          bigger = a;
+        //최소공배수 구하는 부분
+        for (i=bigger;i<=a*b;i++){
+          if (i%a ==0 && i%b==0){
+            answer[1] = i;
+            break;
+          }
+        }
+        //최대공약수 구하는 부분
+        answer[0] = a*b/answer[1];
         return answer;
     }
 
     // 아래는 테스트로 출력해 보기 위한 코드입니다.
     public static void main(String[] args) {
-        SumMatrix c = new SumMatrix();
-        int[][] A = { { 1, 2 }, { 2, 3 } };
-        int[][] B = { { 3, 4 }, { 5, 6 } };
-        int[][] answer = c.sumMatrix(A, B);
-        if (answer[0][0] == 4 && answer[0][1] == 6 &&
-                answer[1][0] == 7 && answer[1][1] == 9) {
-            System.out.println("맞았습니다. 제출을 눌러 보세요");
-        } else {
-            System.out.println("틀렸습니다. 수정하는게 좋겠어요");
-        }
+        TryHelloWorld c = new TryHelloWorld();
+        System.out.println(Arrays.toString(c.gcdlcm(3, 12)));
     }
 }

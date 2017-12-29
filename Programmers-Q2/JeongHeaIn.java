@@ -10,7 +10,7 @@ class SumMatrix {
 	}
 
 	public static void main(String[] args) {
-		SumMatrix c = new SumMatrix();
+		SoojiNoh c = new SoojiNoh();
 		int[][] A = { { 1, 2 }, { 2, 3 } };
 		int[][] B = { { 3, 4 }, { 5, 6 } };
 		int[][] answer = c.sumMatrix(A, B);

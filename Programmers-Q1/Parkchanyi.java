@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-class TryHelloWorld {
+class SoojiNoh{
     public int[] gcdlcm(int a, int b) {
       int[] answer = new int[2];
 			int number1, number2;
@@ -14,18 +14,18 @@ class TryHelloWorld {
         number1 = b;
         number2 = a;
       }
-      while(remain>0){ // À¯Å¬¸®µå È£Á¦¹ý
+      while(remain>0){ // ï¿½ï¿½Å¬ï¿½ï¿½ï¿½ï¿½ È£ï¿½ï¿½ï¿½ï¿½
       	remain = number1%number2;
       	number1 = number2;
         number2 = remain;
       }
-      answer[0] = number1;//ÃÖ´ë°ø¾à¼ö
-      answer[1] = a*b/number1;//ÃÖ¼Ò°ø¹è¼ö
+      answer[0] = number1;//ï¿½Ö´ï¿½ï¿½ï¿½ï¿½ï¿½
+      answer[1] = a*b/number1;//ï¿½Ö¼Ò°ï¿½ï¿½ï¿½ï¿½
       
       return answer;
     }
 
-    // ¾Æ·¡´Â Å×½ºÆ®·Î Ãâ·ÂÇØ º¸±â À§ÇÑ ÄÚµåÀÔ´Ï´Ù.
+    // ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½×½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Úµï¿½ï¿½Ô´Ï´ï¿½.
     public static void main(String[] args) {
         TryHelloWorld c = new TryHelloWorld();
         System.out.println(Arrays.toString(c.gcdlcm(3, 12)));

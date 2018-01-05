@@ -12,8 +12,7 @@ class Solution {
 		int frequency = 1;
 		
 		for (int i = 0; i < A.length; i++) {
-			//배열 A의 맨 마지막 칸을 볼 때 i+1을 하면 오류가 날 수 있기 때문에 try-catch문을 붙인다.
-			try{
+			if (i != A.length - 1) {
 				if (A[i + 1] == A[i])
 					frequency++;
 				else {
@@ -23,10 +22,14 @@ class Solution {
 					result.add(temp);
 					frequency = 1;
 				}
-			} catch(Exception e) { }
+			} else {
+				Number temp = new Number();
+				temp.val = A[i];
+				temp.frequency = frequency;
+				result.add(temp);
+			}
 		}
 
-        //frequency를 기준으로 sort
 		Collections.sort(result, new Ascending());
 		
 		for(int i = 0; i < result.size(); i++) {

@@ -1,30 +1,31 @@
-import java.util.Arrays;
-import java.util.Scanner;
+class JumpCase {
 
-class Solution {
-	static int Answer;
+    public int jumpCase(int num) {
+        int answer = 0;
+      
+        int first = 0;	//f(n-2)
+        int second = 1;	//f(n-1)
+        for(int i = 1; i <= num; i++) {
+            answer = first + second;
+            first = second;
+            second = answer;
+        }
+        return answer;
+    }
 
-	public static void main(String args[]) throws Exception	{
-		Scanner sc = new Scanner(System.in);
-
-		int T = sc.nextInt();
-		for(int test_case = 0; test_case < T; test_case++) {
-			Answer = 0;
-			int num = sc.nextInt();
-			int subjectToStudy = sc.nextInt();
-			int[] array = new int[num];
-			for(int i = 0; i < num; i++)
-				array[i] = sc.nextInt();
-			Arrays.sort(array);
-			
-			for(int i = num-1; i >= num-subjectToStudy; i--) {
-				System.out.println(i);
-				Answer += array[i];
-			}
-
-			// Print the answer to standard output(screen).
-			System.out.println("Case #"+(test_case+1));
-			System.out.println(Answer);
-		}
-	}
+    public static void main(String[] args) {
+        JumpCase c = new JumpCase();
+        int testCase = 4;
+        System.out.println(c.jumpCase(testCase));
+      	//(1) -> 1
+        System.out.println("1老 锭 : " + c.jumpCase(1));
+      	//(1,1),(2) -> 2
+        System.out.println("2老 锭 : " + c.jumpCase(2));
+      	//(1,1,1),(1,2),(2,1) -> 3
+        System.out.println("3老 锭 : " + c.jumpCase(3));
+      	//(1,1,1,1)(1,1,2)(1,2,1)(2,1,1)(2,2) -> 5
+        System.out.println("4老 锭 : " + c.jumpCase(4));
+        //(1,1,1,1,1)(1,1,1,2)(1,1,2,1)(1,2,1,1)(2,1,1,1)(1,2,2)(2,1,2)(2,2,1) -> 8
+        System.out.println("5老 锭 : " + c.jumpCase(5));
+    }
 }

@@ -43,7 +43,7 @@ class GoodNumber {
 				input[i] = sc.nextInt();
 			}
 			
-			boolean[] isGood = new boolean[40001];
+			boolean[] composedNum = new boolean[40001]; //composedNum는 배열 내 존재하는 앞에 존재하는 두 수의 합으로 이루어진 숫자들의 존재여부 flag
 //			Arrays.sort(input);
 			
 		System.out.println(Arrays.toString(input));
@@ -52,11 +52,11 @@ class GoodNumber {
 			for(int num=0 ; num<input.length-1; num++){
 				boolean found=false;
 				for(int elem=0 ; elem<num&&!found; elem++){
-					if(isGood[input[num]-input[elem]+20000]==true)
+					if(composedNum[input[num]-input[elem]+20000]==true) //만약 좋은숫자후보(num)가 그 이전 숫자(elem)와의 차가 배열 composedNum 존재(True)한다면 좋은 숫자가 맞다.
 						found=true;
 				}
 				for(int elem=0 ; elem<=num ; elem++)
-					isGood[input[num]-input[elem]+20000]=true;
+					composedNum[input[num]+input[elem]+20000]=true; //주어진 index의 새로운 좋은숫후보로 composedNum를 업데이트 한다.
 				if(found==true) {
 					Answer++;
 				}
